@@ -16,7 +16,7 @@ let page = 1;
 let searchQuery = "";
 
 export async function fetchCharacters() {
-  const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
+  const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`;
 
   cardContainer.innerHTML = "";
 
@@ -37,6 +37,14 @@ export async function fetchCharacters() {
 }
 
 fetchCharacters();
+
+//Search bar event listener
+
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+  searchQuery = event.target.value;
+  searchQuery.textContent = searchQuery.target.value;
+});
 
 //Button add event listeners
 prevButton.addEventListener("click", () => {

@@ -83,18 +83,20 @@ Great Job! But we want to see not only 20 characters, we want all of them! So le
 
 - By adding the string `?page=<pageIndex>` to the end of the fetch URL, you can receive the respective page of characters.
 - Use the state variable `page` to keep track of the current page index.
-- Inside of the `info` part of the received data you can find the max page count.
+- Inside of the `info` part of the received data you can find the max page count.x
 - Add an event listener on each of the next and prev buttons which do the following:
   - it is prevented that the page index could go higher than the max page index or below 1,
   - the page index is increased / decreased,
   - the `fetchCharacters` function is called.
 - Update the pagination display each time characters are fetched to show the current page and the current max page.
 
+xxx
+
 ### 5. The Search Bar
 
 Now we want even more functionality in our app. We want to find individual characters by typing their name into the search bar.
 
-- Create a 'submit' event listener on the search bar.
+- Create a 'submit' event listener on the search bar.x
 - Update the state variable `searchQuery` with the current text inside the search bar every time this event is triggered.
 - Modify the fetch URL again by adding another URL encoded attribute `name`: append
   `&name=<searchQuery>` to the URL. If the search query is an empty string, it will be ignored by the API, so don't worry about that.
