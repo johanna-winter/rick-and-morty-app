@@ -20,17 +20,21 @@ export async function fetchCharacters() {
 
   const response = await fetch(apiUrl);
   const data = await response.json();
+  const characters = data.results;
+  //console.log(data.results);
 
-  console.log(data.results);
-  // const characters = data.results;
   // console.log(characters);
-  // characters.forEach((character) => {
-  //   createCharacterCard(character.image);
-  // });
+  characters.forEach((character) => {
+    const newCard = createCharacterCard(character);
+    // newCard.textContent = character.name;
+    cardContainer.append(newCard);
+  });
+  console.log(characters[0].name);
+
+  createCharacterCard();
+  cardContainer.innerHTML = "";
 }
 
 fetchCharacters();
 
-createCharacterCard();
-
-cardContainer.append(createCharacterCard());
+// cardContainer.append(createCharacterCard());

@@ -1,13 +1,15 @@
 import { fetchCharacters } from "../../index.js";
+
 export function createCharacterCard(character) {
   const newLi = document.createElement("li");
+  newLi.classList.add("card");
 
   newLi.innerHTML = `
-    <li class="card">
+   
           <div class="card__image-container">
             <img
               class="card__image"
-              src=${character.image}"
+              src="${character.image}"
               alt="${character.name}"
             />
             <div class="card__image-gradient"></div>
@@ -17,12 +19,12 @@ export function createCharacterCard(character) {
             <dl class="card__info">
               <dt class="card__info-title">${character.status}</dt>
               <dd class="card__info-description">Alive</dd>
-              <dt class="card__info-title">${character.type}}</dt>
+              <dt class="card__info-title">${character.type}</dt>
               <dd class="card__info-description"></dd>
               <dt class="card__info-title">Occurrences</dt>
               <dd class="card__info-description">${character.episode.length}</dd>
             </dl>
           </div>
-        </li>`;
+`;
   return newLi;
 }

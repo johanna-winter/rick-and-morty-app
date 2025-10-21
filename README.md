@@ -69,10 +69,13 @@ Right now, the `CharacterCard` function always returns the character Rick Sanche
     > 💡 Hint: The occurrences can be derived from another key in the character object. x
 
 - Switch to the `index.js`.
-- Remove the `console.log` and the single appended `CharacterCard`.
-- Update the `fetchCharacters` function to use an array method to create a character card for each character and append it to the `cardContainer`.
-- Make sure the `cardContainer` is emptied every time new characters are fetched (HINT: you can use `innerHTML = ''` for that).
-- Once implemented, your app should display 20 character cards dynamically.
+
+---
+
+- Remove the `console.log` and the single appended `CharacterCard`.x
+- Update the `fetchCharacters` function to use an array method to create a character card for each character and append it to the `cardContainer`.x
+- Make sure the `cardContainer` is emptied every time new characters are fetched (HINT: you can use `innerHTML = ''` for that).x
+- Once implemented, your app should display 20 character cards dynamically.x
 
 ### 4. Pagination
 
