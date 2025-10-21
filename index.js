@@ -1,5 +1,4 @@
 import { createCharacterCard } from "./components/CharacterCard/CharacterCard.js";
-import { getPagination } from "./components/NavPagination/NavPagination.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
@@ -12,43 +11,29 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-export const maxPage = 42;
-export let page = 1;
-const searchQuery = "";
-
-// getPagination(maxPage);
-const dynamicNav = getPagination();
-pagination.append(dynamicNav);
+let maxPage = 42;
+let page = 1;
+let searchQuery = "";
 
 export async function fetchCharacters() {
   const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
 
+  cardContainer.innerHTML = "";
+
   const response = await fetch(apiUrl);
   const data = await response.json();
   const characters = data.results;
-  const pages = data.info.pages;
+  pagination.textContent = `${page}/${maxPage}`;
 
-  // for (let index = 1, index <= 42, index++) {
-  // }
   // console.log(data.results);
 
   // console.log(characters);
   characters.forEach((character) => {
     const newCard = createCharacterCard(character);
-    // newCard.textContent = character.name;
     cardContainer.append(newCard);
   });
 
-  pages.forEach((page) => {
-    const dynamicNav = getPagination(page);
-    pagination.append(dynamicNav);
-  });
   console.log(data);
-
-  getPagination();
-
-  createCharacterCard();
-  cardContainer.innerHTML = "";
 }
 
 fetchCharacters();
@@ -57,14 +42,14 @@ fetchCharacters();
 prevButton.addEventListener("click", () => {
   if (page > 1) {
     page--;
-    fetchCharacters();
   }
+  fetchCharacters();
 });
 nextButton.addEventListener("click", () => {
-  if (page < 1) {
+  if (page < maxPage) {
     page++;
-    fetchCharacters();
   }
+  fetchCharacters();
 });
 
 // cardContainer.append(createCharacterCard());
