@@ -44,14 +44,15 @@ Let's start by fetching character data from the API, which we will later use to 
 - Use your knowledge about fetching to get the first 20 characters from the API. You can find the correct API endpoint in the docs.
 - Inside the `fetchCharacters` function, log the fetched data to the console.
 - Call `fetchCharacters` and check the console of your browser to ensure the data is being fetched correctly.
+  XXXXXXX
 
 ### 2. Character Card Component
 
 Currently, the HTML contains a hardcoded character card for Rick Sanchez. Instead of hardcoding it, we'll create the card dynamically using JavaScript.
 
 - Inside `CharacterCard.js`, write and export a function called `createCharacterCard`.
-- Use `innerHTML` to generate the HTML of the card. Cut and paste the relevant HTML code of the card from the `index.html` and use it in your function.
-- Ensure that `createCharacterCard` returns a newly created `<li>` element representing a character card.
+- Use `innerHTML` to generate the HTML of the card. Cut and paste the relevant HTML code of the card from the `index.html` and use it in your function. x
+- Ensure that `createCharacterCard` returns a newly created `<li>` element representing a character card. x
 - Inside `index.js`, call the `createCharacterCard` function and append its return value to the existing `cardContainer`.
 - Once implemented, the Rick Sanchez card should no longer be hardcoded in `index.html` but instead be created dynamically using JavaScript.
 
