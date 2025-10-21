@@ -50,22 +50,24 @@ Let's start by fetching character data from the API, which we will later use to 
 
 Currently, the HTML contains a hardcoded character card for Rick Sanchez. Instead of hardcoding it, we'll create the card dynamically using JavaScript.
 
-- Inside `CharacterCard.js`, write and export a function called `createCharacterCard`.
+- Inside `CharacterCard.js`, write and export a function called `createCharacterCard`.x
 - Use `innerHTML` to generate the HTML of the card. Cut and paste the relevant HTML code of the card from the `index.html` and use it in your function. x
 - Ensure that `createCharacterCard` returns a newly created `<li>` element representing a character card. x
-- Inside `index.js`, call the `createCharacterCard` function and append its return value to the existing `cardContainer`.
-- Once implemented, the Rick Sanchez card should no longer be hardcoded in `index.html` but instead be created dynamically using JavaScript.
+- Inside `index.js`, call the `createCharacterCard` function and append its return value to the existing `cardContainer`.x
+- Once implemented, the Rick Sanchez card should no longer be hardcoded in `index.html` but instead be created dynamically using JavaScript.x
 
 ### 3. Make the Character Card Component Dynamic
 
 Right now, the `CharacterCard` function always returns the character Rick Sanchez. We need to update it so that it can generate cards for any character.
 
-- Modify the `CharacterCard` function in `CharacterCard.js` to accept the character data as an argument.
+- Modify the `CharacterCard` function in `CharacterCard.js` to accept the character data as an argument. x
 - Ensure that the following elements of the card dynamically update based on the character data:
-  - the src of the image,
-  - the name of the character,
-  - the status, type and occurrences.
-    > 💡 Hint: The occurrences can be derived from another key in the character object.
+
+  - the src of the image, &{image}x
+  - the name of the character,x
+  - the statusx, typex and occurrences.
+    > 💡 Hint: The occurrences can be derived from another key in the character object. x
+
 - Switch to the `index.js`.
 - Remove the `console.log` and the single appended `CharacterCard`.
 - Update the `fetchCharacters` function to use an array method to create a character card for each character and append it to the `cardContainer`.
