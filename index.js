@@ -5,6 +5,7 @@ const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
 const searchBar = document.querySelector('[data-js="search-bar"]');
+const searchInput = document.querySelector(".search-bar__input");
 const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
@@ -23,11 +24,12 @@ export async function fetchCharacters() {
   const response = await fetch(apiUrl);
   const data = await response.json();
   const characters = data.results;
+  maxPage = data.info.pages;
   pagination.textContent = `${page}/${maxPage}`;
 
   // console.log(data.results);
-
   // console.log(characters);
+
   characters.forEach((character) => {
     const newCard = createCharacterCard(character);
     cardContainer.append(newCard);
@@ -37,14 +39,6 @@ export async function fetchCharacters() {
 }
 
 fetchCharacters();
-
-//Search bar event listener
-
-searchBar.addEventListener("submit", (event) => {
-  event.preventDefault();
-  searchQuery = event.target.value;
-  searchQuery.textContent = searchQuery.target.value;
-});
 
 //Button add event listeners
 prevButton.addEventListener("click", () => {
@@ -60,4 +54,14 @@ nextButton.addEventListener("click", () => {
   fetchCharacters();
 });
 
-// cardContainer.append(createCharacterCard());
+//Search bar event listener
+
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+  searchQuery = searchInput.value.toLowerCase();
+  page = 1;
+  fetchCharacters();
+  // searchQuery = event.target.value;
+  // searchQuery.textContent = searchQuery.target.value;
+  // -> funktioniert nicht, weil ein form tag kein value hat, sondern nur das input html tag
+});
