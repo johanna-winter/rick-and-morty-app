@@ -1,5 +1,3 @@
-import { fetchCharacters } from "../../index.js";
-
 export function createCharacterCard(character) {
   const newLi = document.createElement("li");
   newLi.classList.add("card");
