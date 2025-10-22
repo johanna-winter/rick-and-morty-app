@@ -62,12 +62,12 @@ export function nextPage() {
 }
 //testPagination = newPagination(page, maxPage);
 //pagination.textContent = `${page}/${maxPage}`;
-const testPrev = newPrevButton(prevPage);
-const testNext = newNextButton(nextPage);
+const prevButton = newPrevButton(prevPage);
+const nextButton = newNextButton(nextPage);
 
-navigation.append(testPrev);
+navigation.append(prevButton);
 navigation.append(pagination);
-navigation.append(testNext);
+navigation.append(nextButton);
 
 fetchCharacters();
 //Search bar event listener
