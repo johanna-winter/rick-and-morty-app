@@ -8,9 +8,10 @@ const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
+
+const navigation = document.querySelector('[data-js="navigation"]');
 // const searchBar = document.querySelector('[data-js="search-bar"]');
 // const searchInput = document.querySelector(".search-bar__input");
-const navigation = document.querySelector('[data-js="navigation"]');
 //weil das nicht mehr in index html steht, nur bei navButton.js
 // const prevButton = document.querySelector('[data-js="button-prev"]');
 // const nextButton = document.querySelector('[data-js="button-next"]');
@@ -50,16 +51,16 @@ export function prevPage() {
   //addEventListener("click", (onClick) => {
   if (page > 1) {
     page--;
+    fetchCharacters();
   }
-  fetchCharacters();
 }
 
 export function nextPage() {
   //nextButton.addEventListener("click", (onClick) => {
   if (page < maxPage) {
     page++;
+    fetchCharacters();
   }
-  fetchCharacters();
 }
 //testPagination = newPagination(page, maxPage);
 //pagination.textContent = `${page}/${maxPage}`;
@@ -78,6 +79,8 @@ export function searchBarSubmit(event) {
   // searchBar.addEventListener("submit", (event) => {
   event.preventDefault();
   const input = event.target.querySelector(".search-bar__input");
+  console.log(event.target);
+  console.log(input);
   searchQuery = input.value.toLowerCase();
   page = 1;
   fetchCharacters();
