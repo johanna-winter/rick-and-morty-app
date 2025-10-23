@@ -2,13 +2,14 @@ import { createCharacterCard } from "./components/CharacterCard/CharacterCard.js
 import { newPrevButton } from "./components/NavButton/NavButton.js";
 import { newNextButton } from "./components/NavButton/NavButton.js";
 import { newPagination } from "./components/NavPagination/NavPagination.js";
+import { newSearchBar } from "./components/SearchBar/SearchBar.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
-const searchBar = document.querySelector('[data-js="search-bar"]');
-const searchInput = document.querySelector(".search-bar__input");
+// const searchBar = document.querySelector('[data-js="search-bar"]');
+// const searchInput = document.querySelector(".search-bar__input");
 const navigation = document.querySelector('[data-js="navigation"]');
 //weil das nicht mehr in index html steht, nur bei navButton.js
 // const prevButton = document.querySelector('[data-js="button-prev"]');
@@ -70,14 +71,20 @@ navigation.append(pagination);
 navigation.append(nextButton);
 
 fetchCharacters();
+
 //Search bar event listener
 
-searchBar.addEventListener("submit", (event) => {
+export function searchBarSubmit(event) {
+  // searchBar.addEventListener("submit", (event) => {
   event.preventDefault();
-  searchQuery = searchInput.value.toLowerCase();
+  const input = event.target.querySelector(".search-bar__input");
+  searchQuery = input.value.toLowerCase();
   page = 1;
   fetchCharacters();
   // searchQuery = event.target.value;
   // searchQuery.textContent = searchQuery.target.value;
   // -> funktioniert nicht, weil ein form tag kein value hat, sondern nur das input html tag
-});
+}
+
+const searchBar = newSearchBar(searchBarSubmit);
+searchBarContainer.append(searchBar);
