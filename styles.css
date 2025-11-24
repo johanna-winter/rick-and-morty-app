@@ -16,9 +16,10 @@
 }
 
 body {
-  font-family: var(--font-family);
-  color: var(--color-primary);
-  padding: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
 }
 
 main {
@@ -29,4 +30,9 @@ main {
 
 .title {
   padding: 10px 0;
+}
+h1.title {
+  text-align: center;
+  color: #222;
+  padding: 20px 0;
 }

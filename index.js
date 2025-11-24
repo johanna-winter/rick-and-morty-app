@@ -10,17 +10,12 @@ const searchBarContainer = document.querySelector(
 );
 
 const navigation = document.querySelector('[data-js="navigation"]');
-// const searchBar = document.querySelector('[data-js="search-bar"]');
-// const searchInput = document.querySelector(".search-bar__input");
-//weil das nicht mehr in index html steht, nur bei navButton.js
-// const prevButton = document.querySelector('[data-js="button-prev"]');
-// const nextButton = document.querySelector('[data-js="button-next"]');
 
 // States
 export let maxPage = 42;
 export let page = 1;
 export let searchQuery = "";
-//let testPagination;
+
 const pagination = newPagination(page, maxPage);
 export async function fetchCharacters() {
   const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`;
@@ -33,9 +28,6 @@ export async function fetchCharacters() {
   maxPage = data.info.pages;
   pagination.textContent = `${page}/${maxPage}`;
 
-  // console.log(data.results);
-  // console.log(characters);
-
   characters.forEach((character) => {
     const newCard = createCharacterCard(character);
     cardContainer.append(newCard);
@@ -44,11 +36,7 @@ export async function fetchCharacters() {
   console.log(data);
 }
 
-// fetchCharacters();
-
-//Button add event listeners
 export function prevPage() {
-  //addEventListener("click", (onClick) => {
   if (page > 1) {
     page--;
     fetchCharacters();
@@ -56,14 +44,12 @@ export function prevPage() {
 }
 
 export function nextPage() {
-  //nextButton.addEventListener("click", (onClick) => {
   if (page < maxPage) {
     page++;
     fetchCharacters();
   }
 }
-//testPagination = newPagination(page, maxPage);
-//pagination.textContent = `${page}/${maxPage}`;
+
 const prevButton = newPrevButton(prevPage);
 const nextButton = newNextButton(nextPage);
 
@@ -73,10 +59,7 @@ navigation.append(nextButton);
 
 fetchCharacters();
 
-//Search bar event listener
-
 export function searchBarSubmit(event) {
-  // searchBar.addEventListener("submit", (event) => {
   event.preventDefault();
   const input = event.target.querySelector(".search-bar__input");
   console.log(event.target);
@@ -84,9 +67,6 @@ export function searchBarSubmit(event) {
   searchQuery = input.value.toLowerCase();
   page = 1;
   fetchCharacters();
-  // searchQuery = event.target.value;
-  // searchQuery.textContent = searchQuery.target.value;
-  // -> funktioniert nicht, weil ein form tag kein value hat, sondern nur das input html tag
 }
 
 const searchBar = newSearchBar(searchBarSubmit);
