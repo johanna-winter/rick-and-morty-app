@@ -60,7 +60,7 @@ No external frameworks — everything built with pure vanilla JavaScript.
 
 ## 🤝 Collaboration
 
-This app was created by **Johanna Winter**, and I contributed by working together with her on the features, layout, improvements, and functionality.
+This app was created by **Johanna Winter**, and Efstathios Tsanidis contributed by working together with her on the features, layout, improvements, and functionality.
 
 ---
 
