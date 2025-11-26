@@ -2,7 +2,7 @@
 
 A responsive character explorer built with **JavaScript**, **HTML**, and **CSS** using the public [Rick and Morty API](https://rickandmortyapi.com/).
 
-This project was originally created by **Johanna Winter**, and Efstathios Tsanidis worked together with her on improving and extending the application.
+This project was originally created by **Johanna Winter**, and Efstathios Tsanidis worked together on improving and extending the application.
 
 It demonstrates API consumption, async JavaScript, DOM rendering, responsive UI layout, and component-based architecture — all built without frameworks.
 
@@ -60,7 +60,7 @@ No external frameworks — everything built with pure vanilla JavaScript.
 
 ## 🤝 Collaboration
 
-This app was created by **Johanna Winter**, and Efstathios Tsanidis contributed by working together with her on the features, layout, improvements, and functionality.
+This app was created by **Johanna Winter**, and Efstathios Tsanidis contributed by working together on the features, layout, improvements, and functionality.
 
 ---
 
